@@ -8,16 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="myerp-business" />
         <module name="myerp-model" />
+        <module name="myerp-report" />
         <module name="myerp-technical" />
         <module name="myerp-consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="myerp" target="1.5" />
-      <module name="myerp-business" target="1.5" />
-      <module name="myerp-consumer" target="1.5" />
-      <module name="myerp-model" target="1.5" />
-      <module name="myerp-technical" target="1.5" />
+      <module name="myerp-business" target="1.8" />
+      <module name="myerp-consumer" target="1.8" />
+      <module name="myerp-model" target="1.8" />
+      <module name="myerp-report" target="1.8" />
+      <module name="myerp-technical" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

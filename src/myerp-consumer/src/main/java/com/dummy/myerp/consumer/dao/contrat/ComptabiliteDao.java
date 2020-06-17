@@ -5,6 +5,7 @@ import java.util.List;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.NotFoundException;
 
 
@@ -80,4 +81,45 @@ public interface ComptabiliteDao {
      * @param pId l'id de l'écriture
      */
     void deleteEcritureComptable(Integer pId);
+
+    // ==================== SequenceEcritureComptable ====================
+
+
+    /**
+     * Renvoie la liste des Séquences d'écriture comptable
+     * @return {@link List}
+     */
+    List<SequenceEcritureComptable> getListSequenceEcritureComptable();
+
+    /**
+     * Insert une nouvelle séquence d'écriture comptable.
+     *
+     * @param sequence -
+     */
+    void insertSequenceEcritureComptable(SequenceEcritureComptable sequence);
+
+    /**
+     * Met à jour la séquence de l'écriture comptable.
+     *
+     * @param sequence -
+     */
+    void updateSequenceEcritureComptable(SequenceEcritureComptable sequence);
+
+    /**
+     * Renvoi la dernière Sequence d'écriture comptable correspondante au Journal comptable pour l'année d'écriture donnée
+     *
+     * @param pJournalCode -
+     * @param pYear -
+     * @return {@link SequenceEcritureComptable}
+     *
+     */
+    SequenceEcritureComptable getLastSequenceEcritureComptable(String pJournalCode, int pYear);
+
+    /**
+     * Supprime la séquence de l'écriture comptable.
+     *
+     * @param sequence -
+     */
+    void deleteSequenceEcritureComptable(SequenceEcritureComptable sequence);
+
 }

@@ -24,7 +24,7 @@ public class EcritureComptable {
     /** Journal comptable */
     @NotNull private JournalComptable journal;
     /** The Reference. */
-    @Pattern(regexp = "\\d{1,5}-\\d{4}/\\d{5}")
+    @Pattern(regexp = "\\D{1,5}-\\d{4}/\\d{5}") //Correction de la regex
     private String reference;
     /** The Date. */
     @NotNull private Date date;
@@ -80,7 +80,6 @@ public class EcritureComptable {
      *
      * @return {@link BigDecimal}, {@link BigDecimal#ZERO} si aucun montant au débit
      */
-    // TODO à tester
     public BigDecimal getTotalDebit() {
         BigDecimal vRetour = BigDecimal.ZERO;
         for (LigneEcritureComptable vLigneEcritureComptable : listLigneEcriture) {
@@ -99,8 +98,8 @@ public class EcritureComptable {
     public BigDecimal getTotalCredit() {
         BigDecimal vRetour = BigDecimal.ZERO;
         for (LigneEcritureComptable vLigneEcritureComptable : listLigneEcriture) {
-            if (vLigneEcritureComptable.getDebit() != null) {
-                vRetour = vRetour.add(vLigneEcritureComptable.getDebit());
+            if (vLigneEcritureComptable.getCredit() != null) {
+                vRetour = vRetour.add(vLigneEcritureComptable.getCredit());
             }
         }
         return vRetour;
@@ -111,8 +110,15 @@ public class EcritureComptable {
      * @return boolean
      */
     public boolean isEquilibree() {
-        boolean vRetour = this.getTotalDebit().equals(getTotalCredit());
-        return vRetour;
+        // On compare des BigDecimal. On utilise compareTo
+
+        int compare = this.getTotalDebit().compareTo(getTotalCredit());
+
+        if (compare == 0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // ==================== Méthodes ====================
@@ -121,16 +127,16 @@ public class EcritureComptable {
         final StringBuilder vStB = new StringBuilder(this.getClass().getSimpleName());
         final String vSEP = ", ";
         vStB.append("{")
-            .append("id=").append(id)
-            .append(vSEP).append("journal=").append(journal)
-            .append(vSEP).append("reference='").append(reference).append('\'')
-            .append(vSEP).append("date=").append(date)
-            .append(vSEP).append("libelle='").append(libelle).append('\'')
-            .append(vSEP).append("totalDebit=").append(this.getTotalDebit().toPlainString())
-            .append(vSEP).append("totalCredit=").append(this.getTotalCredit().toPlainString())
-            .append(vSEP).append("listLigneEcriture=[\n")
-            .append(StringUtils.join(listLigneEcriture, "\n")).append("\n]")
-            .append("}");
+                .append("id=").append(id)
+                .append(vSEP).append("journal=").append(journal)
+                .append(vSEP).append("reference='").append(reference).append('\'')
+                .append(vSEP).append("date=").append(date)
+                .append(vSEP).append("libelle='").append(libelle).append('\'')
+                .append(vSEP).append("totalDebit=").append(this.getTotalDebit().toPlainString())
+                .append(vSEP).append("totalCredit=").append(this.getTotalCredit().toPlainString())
+                .append(vSEP).append("listLigneEcriture=[\n")
+                .append(StringUtils.join(listLigneEcriture, "\n")).append("\n]")
+                .append("}");
         return vStB.toString();
     }
 }

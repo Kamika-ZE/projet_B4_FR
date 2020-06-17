@@ -7,6 +7,8 @@ package com.dummy.myerp.model.bean.comptabilite;
 public class SequenceEcritureComptable {
 
     // ==================== Attributs ====================
+    /** Le code du journal */
+    private String journalCode;
     /** L'année */
     private Integer annee;
     /** La dernière valeur utilisée */
@@ -22,10 +24,12 @@ public class SequenceEcritureComptable {
     /**
      * Constructeur
      *
+     * @param pJournalCode -
      * @param pAnnee -
      * @param pDerniereValeur -
      */
-    public SequenceEcritureComptable(Integer pAnnee, Integer pDerniereValeur) {
+    public SequenceEcritureComptable(String pJournalCode, Integer pAnnee, Integer pDerniereValeur) {
+        journalCode = pJournalCode;
         annee = pAnnee;
         derniereValeur = pDerniereValeur;
     }
@@ -45,6 +49,13 @@ public class SequenceEcritureComptable {
         derniereValeur = pDerniereValeur;
     }
 
+    public String getJournalCode() {
+        return journalCode;
+    }
+
+    public void setJournalCode(String journalCode) {
+        this.journalCode = journalCode;
+    }
 
     // ==================== Méthodes ====================
     @Override
@@ -52,9 +63,9 @@ public class SequenceEcritureComptable {
         final StringBuilder vStB = new StringBuilder(this.getClass().getSimpleName());
         final String vSEP = ", ";
         vStB.append("{")
-            .append("annee=").append(annee)
-            .append(vSEP).append("derniereValeur=").append(derniereValeur)
-            .append("}");
+                .append("annee=").append(annee)
+                .append(vSEP).append("derniereValeur=").append(derniereValeur)
+                .append("}");
         return vStB.toString();
     }
 }

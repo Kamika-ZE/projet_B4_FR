@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/src/myerp-business/myerp-business.iml" filepath="$PROJECT_DIR$/src/myerp-business/myerp-business.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/myerp-consumer/myerp-consumer.iml" filepath="$PROJECT_DIR$/src/myerp-consumer/myerp-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/myerp-model/myerp-model.iml" filepath="$PROJECT_DIR$/src/myerp-model/myerp-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/myerp-report/myerp-report.iml" filepath="$PROJECT_DIR$/src/myerp-report/myerp-report.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/myerp-technical/myerp-technical.iml" filepath="$PROJECT_DIR$/src/myerp-technical/myerp-technical.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projet_B4_FR.iml" filepath="$PROJECT_DIR$/.idea/projet_B4_FR.iml" />
     </modules>
