@@ -60,7 +60,7 @@
         <sonar.login>35c89a08fd28d9ae9bd275d44780c736954c12cc</sonar.login>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.language>java</sonar.language>
-        <aggregate.report.dir>myerp-report/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
+        <aggregate.report.dir>myerp-business/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
 
